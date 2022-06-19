@@ -4,13 +4,13 @@ const { Op } = require("sequelize");
 
 
 
-// Create and Save a new Tutorial
+
 exports.create = (req, res) => {
 
     // Validate request
     if ("body" in req) {
 
-        if ((!req.body.startdate) || (!req.body.title)) {
+        if ((!req.body.startdate) || (!req.body.title) || (!req.body.desc) || (!req.body.enddate) || (!req.body.starttime) || (!req.body.endtime)) {
 
             res.status(400).json({
                 message: "Content cannot be empty!"

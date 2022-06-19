@@ -3,7 +3,6 @@ const EventRating = require('../models/eventrating.model');
 
 
 
-// Create and Save a new Tutorial
 exports.create = (req, res) => {
 
     // Validate request

@@ -5,13 +5,13 @@ const { Op } = require("sequelize");
 
 
 
-// Create and Save a new Tutorial
+// Create and Save a new housing
 exports.create = (req, res) => {
 
     // Validate request
     if ("body" in req) {
 
-        if ((!req.body.title) || (!req.body.price)) {
+        if ((!req.body.title) || (!req.body.price) || (!req.body.info) || (!req.body.date) || (!req.body.location) || (!req.body.maxpeople) || (!req.body.currpeople)) {
 
             res.status(400).json({
                 message: "Content cannot be empty!"

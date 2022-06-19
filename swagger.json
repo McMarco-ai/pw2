@@ -35,6 +35,38 @@
                     }
                 }
             }
+        },
+        "/student/login": {
+            "post": {
+                "description": "Login como estudante",
+                "parameters": [{
+                    "name": "Email",
+                    "in": "body",
+                    "description": "email Completo do Estudante",
+                    "required": true,
+                    "default": "40190368@esmad.ipp.pt"
+                },
+                {
+                    "name": "Password",
+                    "in": "body",
+                    "description": "password do Estudante",
+                    "required": true,
+                    "default": "40190368@esmad.ipp.pt"
+                }],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

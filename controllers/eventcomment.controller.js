@@ -3,7 +3,7 @@ const EventComment = require('../models/eventcomment.model');
 
 
 
-// Create and Save a new Tutorial
+
 exports.create = (req, res) => {
 
     // Validate request
