@@ -22,9 +22,6 @@ const Landlord = database.define("landlord", {
     },
     password: {
         type: Sequelize.STRING
-    },
-    banned: {
-        type: Sequelize.BOOLEAN
     }
 });
 

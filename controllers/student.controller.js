@@ -10,7 +10,7 @@ exports.create = (req, res) => {
     // Validate request
     if ("body" in req) {
 
-        if ((!req.body.name) || (!req.body.password)) {
+        if ((!req.body.name) || (!req.body.password) || (!req.body.birthday) || (!req.body.number) || (!req.body.address) || (!req.body.email) || (!req.body.phone) || (!req.body.banned)) {
 
             res.status(400).json({
                 message: "Content cannot be empty!"
