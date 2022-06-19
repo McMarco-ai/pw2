@@ -1,5 +1,7 @@
+const sequelize = require('sequelize')
 const utilities = require('../utilities')
 const Housing = require('../models/housing.model');
+const { Op } = require("sequelize");
 
 
 
@@ -9,7 +11,7 @@ exports.create = (req, res) => {
     // Validate request
     if ("body" in req) {
 
-        if ((!req.body.title) || (!req.body.price) || (!req.body.info) || (!req.body.date) || (!req.body.location) || (!req.body.maxpeople) || (!req.body.currpeople)) {
+        if ((!req.body.title) || (!req.body.price)) {
 
             res.status(400).json({
                 message: "Content cannot be empty!"
@@ -42,3 +44,47 @@ exports.create = (req, res) => {
         });
 
 };
+
+
+
+exports.list = async(req, res) => {
+
+    const housings = await Housing.findAll({
+        where: {
+
+            title: {
+                [Op.like]: "title" in req.query ? `%${req.query.title}%` : '%%'
+            },
+            date: {
+                [Op.gte]: "date" in req.query ? req.query.date : new Date()
+            },
+            location: {
+                [Op.like]: "location" in req.query ? `%${req.query.location}%` : '%%'
+            },
+            maxpeople: {
+                [Op.lte]: "maxpeople" in req.query ? req.query.maxpeople : '999'
+            },
+            typeid: "typeid" in req.query ? req.query.typeid : {
+                [Op.gte]: '0'
+            }
+
+        },
+        attributes: {
+            include: [
+                [
+                    sequelize.literal(`(
+                        SELECT COUNT(*)
+                        FROM housingsubscriptions AS sub
+                        WHERE
+                            sub.housingid = housing.id
+                        AND sub.approved = 1
+                    )`),
+                    'currpeople'
+                ]
+            ]
+        }
+    });
+
+    res.send(housings)
+
+}

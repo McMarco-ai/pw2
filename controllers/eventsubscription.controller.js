@@ -1,16 +1,15 @@
 const utilities = require('../utilities')
-const Event = require('../models/event.model');
-const { Op } = require("sequelize");
+const EventSubscription = require('../models/eventsubscription.model');
 
 
 
-// Create and Save a new Tutorial
+// Create and Save a new Subscription
 exports.create = (req, res) => {
 
     // Validate request
     if ("body" in req) {
 
-        if ((!req.body.startdate) || (!req.body.title)) {
+        if (!req.body.eventid) {
 
             res.status(400).json({
                 message: "Content cannot be empty!"
@@ -29,10 +28,8 @@ exports.create = (req, res) => {
         return;
     }
 
-
-
-    // Save Event in the database
-    Event.create(req.body)
+    // Save Event Subscription in the database
+    EventSubscription.create(req.body)
         .then(data => {
             res.send(data);
         })
@@ -43,21 +40,3 @@ exports.create = (req, res) => {
         });
 
 };
-
-
-exports.list = async(req, res) => {
-
-    const events = await Event.findAll({
-        where: {
-            title: {
-                [Op.like]: "title" in req.query ? `%${req.query.title}%` : '%%'
-            },
-            startdate: {
-                [Op.gte]: "startdate" in req.query ? req.query.startdate : new Date()
-            }
-        }
-    });
-
-    res.send(events)
-
-}

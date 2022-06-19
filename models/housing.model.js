@@ -34,9 +34,6 @@ const Housing = database.define("housing", {
     },
     maxpeople: {
         type: Sequelize.INTEGER
-    },
-    currpeople: {
-        type: Sequelize.INTEGER
     }
 
 

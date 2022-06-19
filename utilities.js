@@ -19,7 +19,7 @@ const validateToken = (token, callback) => {
         if (error) {
             return callback(false);
         } else {
-            return callback(true)
+            return callback(true, decoded.data)
         }
     })
 }

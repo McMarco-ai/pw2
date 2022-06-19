@@ -1,6 +1,5 @@
 const utilities = require('../utilities')
-const Event = require('../models/event.model');
-const { Op } = require("sequelize");
+const HousingComment = require('../models/housingcomment.model');
 
 
 
@@ -10,7 +9,7 @@ exports.create = (req, res) => {
     // Validate request
     if ("body" in req) {
 
-        if ((!req.body.startdate) || (!req.body.title)) {
+        if (!req.body.comment) {
 
             res.status(400).json({
                 message: "Content cannot be empty!"
@@ -32,7 +31,7 @@ exports.create = (req, res) => {
 
 
     // Save Event in the database
-    Event.create(req.body)
+    HousingComment.create(req.body)
         .then(data => {
             res.send(data);
         })
@@ -43,21 +42,3 @@ exports.create = (req, res) => {
         });
 
 };
-
-
-exports.list = async(req, res) => {
-
-    const events = await Event.findAll({
-        where: {
-            title: {
-                [Op.like]: "title" in req.query ? `%${req.query.title}%` : '%%'
-            },
-            startdate: {
-                [Op.gte]: "startdate" in req.query ? req.query.startdate : new Date()
-            }
-        }
-    });
-
-    res.send(events)
-
-}

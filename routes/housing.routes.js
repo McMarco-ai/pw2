@@ -7,6 +7,10 @@ router.post('/create', (req, res) => {
     housingController.create(req, res)
 })
 
+router.get('/list', (req, res) => {
+    housingController.list(req, res)
+})
+
 
 
 module.exports = router;

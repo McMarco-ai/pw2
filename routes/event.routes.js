@@ -7,6 +7,10 @@ router.post('/create', (req, res) => {
     eventController.create(req, res)
 })
 
+router.get('/list', (req, res) => {
+    eventController.list(req, res)
+})
+
 
 
 module.exports = router;
