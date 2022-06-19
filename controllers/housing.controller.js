@@ -80,6 +80,22 @@ exports.list = async(req, res) => {
                         AND sub.approved = 1
                     )`),
                     'currpeople'
+                ],
+                [
+                    sequelize.literal(`(
+                        SELECT SUM(rating)
+                        FROM housingratings AS rating
+                        WHERE
+                            rating.housingid = housing.id
+                       
+                    )/(
+                        SELECT COUNT(*)
+                        FROM housingratings AS rating
+                        WHERE
+                            rating.housingid = housing.id
+                       
+                    )` ),
+                    'rating'
                 ]
             ]
         }

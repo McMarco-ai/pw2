@@ -53,34 +53,6 @@ exports.create = (req, res) => {
 
 
 
-exports.login = async(req, res) => {
-
-    var landlord = await Landlord.findAll({
-        where: {
-            email: req.body.email
-        }
-    });
-
-    landlord = landlord[0].dataValues
-
-
-    bcrypt.compare(req.body.password, landlord.password).then((result) => {
-
-
-        if (result) {
-            utilities.generateToken({
-                type: 'landlord',
-                id: landlord.id
-            }, (token) => {
-                res.status(200).json(token);
-            })
-        } else {
-            res.status(401).send("Not Authorized");
-        }
-
-    })
-
-
-
-
+exports.list = async(req , res) => {
+    res.send(await HousingType.findAll())
 };

@@ -21,6 +21,48 @@
                     "description": "Nome Completo do Estudante",
                     "required": true,
                     "default": "Marco Marques"
+                },
+                {
+                    "name": "birthday",
+                    "in": "body",
+                    "description": "Data de aniversario",
+                    "required": true,
+                    "default": "1/11/2000"
+                },
+                {
+                    "name": "number",
+                    "in": "body",
+                    "description": "numero de estudante",
+                    "required": true,
+                    "default": "40190368"
+                },
+                {
+                    "name": "address",
+                    "in": "body",
+                    "description": "Morada",
+                    "required": true,
+                    "default": "Rua das violetas"
+                },
+                {
+                    "name": "email",
+                    "in": "body",
+                    "description": "email",
+                    "required": true,
+                    "default": "40190368@esmad.ipp.pt"
+                },
+                {
+                    "name": "phone",
+                    "in": "body",
+                    "description": "numero de telemovel ",
+                    "required": true,
+                    "default": "930 128 117"
+                },
+                {
+                    "name": "password",
+                    "in": "body",
+                    "description": "password",
+                    "required": true,
+                    "default": "trine200"
                 }],
                 "responses": {
                     "200": {
@@ -51,6 +93,104 @@
                     "in": "body",
                     "description": "password do Estudante",
                     "required": true,
+                    "default": "louco"
+                }],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/landlord/create": {
+            "post": {
+                "description": "Criar um novo landlord",
+                "parameters": [{
+                    "name": "Nome",
+                    "in": "body",
+                    "description": "Nome Completo do landlord",
+                    "required": true,
+                    "default": "Marco Marques"
+                },
+                {
+                    "name": "birthday",
+                    "in": "body",
+                    "description": "Data de aniversario",
+                    "required": true,
+                    "default": "1/11/2000"
+                },
+                {
+                    "name": "number",
+                    "in": "body",
+                    "description": "numero de estudante",
+                    "required": true,
+                    "default": "40190368"
+                },
+                {
+                    "name": "address",
+                    "in": "body",
+                    "description": "Morada",
+                    "required": true,
+                    "default": "Rua das violetas"
+                },
+                {
+                    "name": "email",
+                    "in": "body",
+                    "description": "email",
+                    "required": true,
+                    "default": "40190368@esmad.ipp.pt"
+                },
+                {
+                    "name": "phone",
+                    "in": "body",
+                    "description": "numero de telemovel ",
+                    "required": true,
+                    "default": "930 128 117"
+                },
+                {
+                    "name": "password",
+                    "in": "body",
+                    "description": "password",
+                    "required": true,
+                    "default": "trine200"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/landlord/login": {
+            "post": {
+                "description": "Login como landlord",
+                "parameters": [{
+                    "name": "Email",
+                    "in": "body",
+                    "description": "email Completo do Estudante",
+                    "required": true,
+                    "default": "40190368@esmad.ipp.pt"
+                },
+                {
+                    "name": "Password",
+                    "in": "body",
+                    "description": "password do Estudante",
+                    "required": true,
                     "default": "40190368@esmad.ipp.pt"
                 }],
 
@@ -67,6 +207,671 @@
                     }
                 }
             }
+        },
+        "/housing/type/create": {
+            "post": {
+                "description": "Criar um novo housing type",
+                "parameters": [{
+                    "name": "info",
+                    "in": "body",
+                    "description": "informaçao do housing type",
+                    "required": true,
+                    "default": "apartamento"
+                }
+              ],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/type/list": {
+            "get": {
+                "description": "Criar um novo housing type",
+                "parameters": [{
+                    "name": "info",
+                    "in": "body",
+                    "description": "informaçao do housing type",
+                    "required": true,
+                    "default": "apartamento"
+                }
+              ],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/subscription/create": {
+            "post": {
+                "description": "Criar uma subscriçao na casa",
+                "parameters": [{
+                    "name": "housing id",
+                    "in": "body",
+                    "description": "id da casa",
+                    "required": true,
+                    "default": "1"
+                }
+              ],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/subscription/list": {
+            "post": {
+                "description": "filtra todas as casas",
+                "parameters": [{
+                    "name": "housing id",
+                    "in": "body",
+                    "description": "id da casa",
+                    "required": true,
+                    "default": "1"
+                }
+              ],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/subscription/approve": {
+            "post": {
+                "description": "aprovar uma subscriçao",
+                "parameters": [{
+                    "name": "subscripition id",
+                    "in": "body",
+                    "description": "id da subscriçao",
+                    "required": true,
+                    "default": "1"
+                }
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/subscription/disapprove": {
+            "post": {
+                "description": "desaprovar uma subscriçao",
+                "parameters": [{
+                    "name": "subscripition id",
+                    "in": "body",
+                    "description": "id da subscriçao",
+                    "required": true,
+                    "default": "1"
+                }
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/rating/create": {
+            "post": {
+                "description": "criar uma avaliçao de casa",
+                "parameters": [{
+                    "name": "rating",
+                    "in": "body",
+                    "description": "rating",
+                    "required": true,
+                    "default": "1"
+                }
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/comment/create": {
+            "post": {
+                "description": "criar um comentário",
+                "parameters": [{
+                    "name": "housing id",
+                    "in": "body",
+                    "description": "id da casa",
+                    "required": true,
+                    "default": "1"
+                },
+                {
+                    "name": "comment",
+                    "in": "body",
+                    "description": "id do comentário",
+                    "required": true,
+                    "default": "1"
+                }
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/create": {
+            "post": {
+                "description": "criar uma casa",
+                "parameters": [{
+                    "name": "type id",
+                    "in": "body",
+                    "description": "id do tipo de casa",
+                    "required": true,
+                    "default": "1"
+                },
+                {
+                    "name": "title",
+                    "in": "body",
+                    "description": "nome da casa",
+                    "required": true,
+                    "default": "CAsa da esquina"
+                },
+                {
+                    "name": "price",
+                    "in": "body",
+                    "description": "preço da casa",
+                    "required": true,
+                    "default": "1000"
+                },
+                {
+                    "name": "info",
+                    "in": "body",
+                    "description": "descrição da casa",
+                    "required": true,
+                    "default": "Casa muito bem posicionada"
+                },
+                {
+                    "name": "date",
+                    "in": "body",
+                    "description": "data da casa",
+                    "required": true,
+                    "default": "12/19/2022"
+                },
+                {
+                    "name": "location",
+                    "in": "body",
+                    "description": "localizaçao da casa",
+                    "required": true,
+                    "default": "rua das violetas"
+                },
+                {
+                    "name": "maxpeople",
+                    "in": "body",
+                    "description": "numero maximo de pessoas por casa",
+                    "required": true,
+                    "default": "8"
+                },
+                {
+                    "name": "currpeople",
+                    "in": "body",
+                    "description": "numero de pessoas na casa neste momento",
+                    "required": true,
+                    "default": "2"
+                }
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/housing/list": {
+            "get": {
+                "description": "filtrar as casas",
+                "parameters": [{
+                    "name": "type id",
+                    "in": "body",
+                    "description": "id do tipo de casa",
+                    "required": true,
+                    "default": "1"
+                },
+                {
+                    "name": "date",
+                    "in": "body",
+                    "description": "data da casa",
+                    "required": true,
+                    "default": "12/19/2022"
+                },
+                {
+                    "name": "location",
+                    "in": "body",
+                    "description": "localizaçao da casa",
+                    "required": true,
+                    "default": "rua das violetas"
+                },
+                {
+                    "name": "maxpeople",
+                    "in": "body",
+                    "description": "numero maximo de pessoas por casa",
+                    "required": true,
+                    "default": "8"
+                },
+                {
+                    "name": "title",
+                    "in": "body",
+                    "description": "title da casa",
+                    "required": true,
+                    "default": "Casa da rua santa catarina"
+                }
+
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/type/create": {
+            "post": {
+                "description": "criar um tipo de evento",
+                "parameters": [{
+                    "name": "info",
+                    "in": "body",
+                    "description": "tipo de evento",
+                    "required": true,
+                    "default": "festa com piscina"
+                }
+              
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/subscription/create": {
+            "post": {
+                "description": "fazer uma subscriçao pra um evento",
+                "parameters": [{
+                    "name": "event id",
+                    "in": "body",
+                    "description": "id do evento",
+                    "required": true,
+                    "default": "3"
+                }
+              
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/rating/create": {
+            "post": {
+                "description": "dar rate a um evento",
+                "parameters": [{
+                    "name": "event id",
+                    "in": "body",
+                    "description": "id do evento",
+                    "required": true,
+                    "default": "3"
+                },
+                {
+                    "name": "rating",
+                    "in": "body",
+                    "description": "rating",
+                    "required": true,
+                    "default": "3.2"
+                }
+              
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/comment/create": {
+            "post": {
+                "description": "comentar num evento",
+                "parameters": [{
+                    "name": "event id",
+                    "in": "body",
+                    "description": "id do evento",
+                    "required": true,
+                    "default": "3"
+                },
+                {
+                    "name": "comment",
+                    "in": "body",
+                    "description": "comentario",
+                    "required": true,
+                    "default": "Esta casa e incrivel!"
+                }
+              
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/create": {
+            "post": {
+                "description": "criar um evento",
+                "parameters": [{
+                    "name": "type id",
+                    "in": "body",
+                    "description": "id do tipo do evento",
+                    "required": true,
+                    "default": "1"
+                },
+                {
+                    "name": "startdate",
+                    "in": "body",
+                    "description": "inicio do evento",
+                    "required": true,
+                    "default": "12/19/2022"
+                },
+                {
+                    "name": "location",
+                    "in": "body",
+                    "description": "localizaçao do evento",
+                    "required": true,
+                    "default": "rua das violetas"
+                },
+                {
+                    "name": "enddate",
+                    "in": "body",
+                    "description": "fim do evento",
+                    "required": true,
+                    "default": "12/19/2022"
+                },
+                {
+                    "name": "title",
+                    "in": "body",
+                    "description": "title do evento",
+                    "required": true,
+                    "default": "Casa da rua santa catarina"
+                },
+                {
+                    "name": "starttime",
+                    "in": "body",
+                    "description": "tempo de começo",
+                    "required": true,
+                    "default": "23:52"
+                },
+                {
+                    "name": "endtime",
+                    "in": "body",
+                    "description": "tempo do fim do evento",
+                    "required": true,
+                    "default": "23:52"
+                }
+              
+              
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/list": {
+            "get": {
+                "description": "filtrar os eventos",
+                "parameters": [{
+                    "name": "type id",
+                    "in": "body",
+                    "description": "id do tipo de casa",
+                    "required": true,
+                    "default": "1"
+                },
+                {
+                    "name": "startdate",
+                    "in": "body",
+                    "description": "data do inicio do evento",
+                    "required": true,
+                    "default": "12/19/2022"
+                },
+                {
+                    "name": "location",
+                    "in": "body",
+                    "description": "localizaçao da casa",
+                    "required": true,
+                    "default": "rua das violetas"
+                },
+                
+                {
+                    "name": "title",
+                    "in": "body",
+                    "description": "title da casa",
+                    "required": true,
+                    "default": "Casa da rua santa catarina"
+                }
+
+              ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/login": {
+            "post": {
+                "description": "Login como admin",
+                "parameters": [{
+                    "name": "adminUsername",
+                    "in": "body",
+                    "description": "username do admin",
+                    "required": true,
+                    "default": "Joao marques"
+                },
+                {
+                    "name": "Password",
+                    "in": "body",
+                    "description": "password do Admin",
+                    "required": true,
+                    "default": "louco"
+                }],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/block/student": {
+            "patch": {
+                "description": "bloquear um estudante",
+                "parameters": [{
+                    "name": "studentId",
+                    "in": "body",
+                    "description": "id do estudante",
+                    "required": true,
+                    "default": "3"
+                }
+
+                
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/unblock/student": {
+            "patch": {
+                "description": "desbloquear um estudante",
+                "parameters": [{
+                    "name": "studentId",
+                    "in": "body",
+                    "description": "id do estudante",
+                    "required": true,
+                    "default": "3"
+                }
+                
+                
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "JSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+
+        
     }
+    
 }
