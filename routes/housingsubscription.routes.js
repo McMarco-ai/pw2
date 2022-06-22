@@ -7,7 +7,7 @@ router.post('/create', (req, res) => {
     housingSubscriptionController.create(req, res)
 })
 
-router.post('/list', (req, res) => {
+router.get('/list', (req, res) => {
     housingSubscriptionController.list(req, res)
 })
 
